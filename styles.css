@@ -1,0 +1,465 @@
+:root {
+    --color-primary: #0F172A;
+    --color-secondary: #1E293B;
+    --color-accent: #6EE7B7;
+    --color-text: #CBD5E1;
+}
+
+.light-mode {
+    --color-primary: #FFFFFF;
+    --color-secondary: #F1F5F9;
+    --color-accent: #1D4ED8;
+    --color-text: #0F172A;
+}
+
+/* Light mode text improvements */
+.light-mode .project-card {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+}
+
+.light-mode .project-card h3 {
+    color: #1D4ED8;
+}
+
+.light-mode .project-card p {
+    color: #475569;
+}
+
+.light-mode .project-card ul li {
+    color: #334155;
+}
+
+.light-mode .project-card .text-gray-400 {
+    color: #64748B;
+}
+
+.light-mode .project-card .text-gray-300 {
+    color: #475569;
+}
+
+/* Light mode button improvements */
+.light-mode .px-2.py-0\.5.text-xs.rounded-full {
+    color: #1E293B !important;
+    font-weight: 600;
+}
+
+.light-mode .bg-green-900\/30 {
+    background-color: #DCFCE7 !important;
+    border-color: #16A34A !important;
+}
+
+.light-mode .text-green-300 {
+    color: #15803D !important;
+}
+
+.light-mode .bg-blue-900\/30 {
+    background-color: #DBEAFE !important;
+    border-color: #2563EB !important;
+}
+
+.light-mode .text-blue-300 {
+    color: #1D4ED8 !important;
+}
+
+.light-mode .bg-yellow-900\/30 {
+    background-color: #FEF3C7 !important;
+    border-color: #D97706 !important;
+}
+
+.light-mode .text-yellow-300 {
+    color: #B45309 !important;
+}
+
+.light-mode .border-green-400\/40 {
+    border-color: #16A34A !important;
+}
+
+.light-mode .border-blue-400\/40 {
+    border-color: #2563EB !important;
+}
+
+.light-mode .border-yellow-400\/40 {
+    border-color: #D97706 !important;
+}
+
+/* More specific button targeting for light mode */
+.light-mode .project-card .flex.gap-2 span {
+    color: #1E293B !important;
+    font-weight: 600;
+}
+
+/* Fix button text breaking and improve button layout */
+.project-card .flex.gap-2 {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-card .flex.gap-2 span {
+    white-space: nowrap;
+    min-width: fit-content;
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-mode .project-card .bg-green-900\/30 {
+    background-color: #DCFCE7 !important;
+    border-color: #16A34A !important;
+    color: #15803D !important;
+}
+
+.light-mode .project-card .bg-blue-900\/30 {
+    background-color: #DBEAFE !important;
+    border-color: #2563EB !important;
+    color: #1D4ED8 !important;
+}
+
+.light-mode .project-card .bg-yellow-900\/30 {
+    background-color: #FEF3C7 !important;
+    border-color: #D97706 !important;
+    color: #B45309 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    transition: background-color 0.5s ease;
+}
+
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: slideIn 0.7s forwards;
+    opacity: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: 9999px;
+    transition: background-color 0.5s ease;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: var(--color-accent); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideIn {
+    animation: slideIn 0.7s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background: linear-gradient(-45deg, var(--color-accent), #3B82F6, #8B5CF6, var(--color-accent));
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+.animate-rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* Typing animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid var(--color-accent);
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Parallax effect */
+.parallax {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Compact phone preview in project cards */
+.phone-preview img {
+    display: block;
+}
+
+/* Enhanced hover effects */
+.project-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(110, 231, 183, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Pixel 5 style Android phone mockup */
+.phone-mockup {
+    width: 140px;
+    height: 280px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid #2a2a2a;
+    box-shadow: 
+        0 0 0 1px #333,
+        0 8px 24px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    padding: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+.phone-mockup::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at 30% 30%, #0ea5e9, #000 70%);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 2px rgba(14, 165, 233, 0.4);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #333;
+}
+
+.phone-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
+}
+
+.phone-slide.active { opacity: 1; }
+
+.phone-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Utility to keep card content balanced */
+.project-card .summary-col { 
+    align-self: start; 
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.project-card .mockup-col { 
+    justify-self: center; 
+    flex-shrink: 0; /* Prevents mockup from shrinking */
+}
+
+/* Improve project card layout */
+.project-card {
+    min-height: 280px; /* Ensure consistent card heights */
+}
+
+.project-card .summary-col h3 {
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.project-card .summary-col p {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.project-card .summary-col ul {
+    margin-bottom: 16px;
+}
+
+.project-card .summary-col li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+/* Button animations */
+.animated-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.animated-button:hover::before {
+    left: 100%;
+}
+
+/* Scroll animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading animation */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+}

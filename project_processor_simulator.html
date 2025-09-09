@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Processor Simulator | Ankit Aggarwal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cas.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <h1>Virtual Processor Simulator</h1>
+            <h2>A C++ Console Application for Computer Architecture</h2>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="content-section">
+            <h3>About the Project</h3>
+            <p>The Hypothetical Processor Simulation project is a computer architecture project that involves designing and simulating a hypothetical processor using a C++ console application. The goal of this project is to develop a virtual processor model capable of executing macroinstructions defined specifically for this processor.</p>
+        </section>
+
+        <section class="content-section">
+            <h3>Architecture Layout</h3>
+            <div class="image-container">
+                <img src="Assets/processor.jpg" alt="Processor Architecture Diagram" class="architecture-image">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>Processor Specification</h3>
+            <div class="specification-grid">
+                <div class="spec-item">
+                    <h4>Register (i). Special register:</h4>
+                    <ul>
+                        <li>PC (program counter) – 11bit</li>
+                        <li>MAR (memory address register) – 11bit</li>
+                        <li>IR (instruction register) – 16bit</li>
+                        <li>CAR (control address register) – 8bit</li>
+                        <li>SBR (Subroutine register) – 8bit</li>
+                    </ul>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>General purpose register:</h4>
+                    <p>B, C, D, A (accumulator) – 16bit</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>I/O register:</h4>
+                    <ul>
+                        <li>INR (input register) – 16bit</li>
+                        <li>OUTR (output register) – 16bit</li>
+                    </ul>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>Memory:</h4>
+                    <ul>
+                        <li><strong>RAM- 4KiB:</strong> [2k*16 bit]
+                            <ul>
+                                <li>Data portion (0x065-0x7FF)</li>
+                                <li>Code portion (0x000-0x064)</li>
+                            </ul>
+                        </li>
+                        <li><strong>ROM- 256*38 bit</strong></li>
+                        <li><strong>Cache -</strong>
+                            <ul>
+                                <li>Tag: 5bit</li>
+                                <li>Offset: 3bit</li>
+                                <li>Cache line: 2</li>
+                                <li>Block size: 8*38 bit (offset 3 bit)</li>
+                                <li>Total capacity: 16*[5(tag)+1(Valid bit) + 38(cache Data width)]</li>
+                                <li>Data cache capacity: 38*2*8</li>
+                                <li>Look through model</li>
+                                <li>Fully associative organization</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>Flag:</h4>
+                    <p>N (negative), Z (zero), V (overflow) - based on output of ALU, R, W (read write flag based on I/O operation)</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>ALU (arithmetic logic unit):</h4>
+                    <p>works with accumulator with 16 bit</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4>Barrel shifter:</h4>
+                    <p>one input of ALU is passed through the barrel shifter</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h3>General Working Features</h3>
+            <div class="features-content">
+                <ul>
+                    <li>We divide our instructions based on arithmetic and non-arithmetic, which is decided by the b15 bit of the instruction, enabling the decoder of the barrel shifter for arithmetic operations.</li>
+                    <li><strong>Arithmetic instructions (b15 = 0):</strong> ADD, SUB, INC, DEC, MUL, AND, OR, CMA, CLA</li>
+                    <li><strong>Non-arithmetic instructions (b15 = 1):</strong> LDA, STA, BUN, BSA, BZ, IN, OUT, HLT</li>
+                    <li>Only load, store, and branching instructions have direct access to the memory.</li>
+                    <li>We have an implicit operand destination register (A) and source registers (A, B) in arithmetic instructions, with register B passed through the barrel shifter.</li>
+                    <li>We divide our RAM memory into code and data portions.</li>
+                    <li>When powered on, PC=0X000 and CAR=0XF8.</li>
+                    <li><strong>Unique Concepts in the Processor:</strong>
+                        <ul>
+                            <li>One input of ALU is passed through the barrel shifter, allowing for faster implementation of divide and multiply operations.</li>
+                            <li>We implement cache memory before ROM, reducing instruction access time.</li>
+                            <li>We use branching in ROM using CAR, which decreases the size of the ROM.</li>
+                            <li>We implement multiplication using branching in ROM.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="button-container">
+                <a class="button primary-button" href="Assets/CA--Ankit Aggarwal.exe">Console Application</a>
+                <a class="button secondary-button" href="Assets/writeup.pdf">View Documentation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ankit Aggarwal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
